@@ -24,4 +24,5 @@ const styles = StyleSheet.create({
   },
 });
 
+//Authentication 추가
 export default withAuthenticator(App, { includeGreetings: true });

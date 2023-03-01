@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import '@azure/core-asynciterator-polyfill';
+import React from 'react';
+import { StatusBar, StyleSheet, View } from 'react-native';
+import { withAuthenticator } from 'aws-amplify-react-native';
+import { Amplify } from 'aws-amplify';
+import awsconfig from './src/aws-exports';
+import Home from './src/Home';
 
-export default function App() {
+Amplify.configure(awsconfig);
+
+function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      <Home />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
   },
 });
+
+export default withAuthenticator(App, { includeGreetings: true });

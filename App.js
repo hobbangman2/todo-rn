@@ -1,4 +1,3 @@
-import '@azure/core-asynciterator-polyfill';
 import React from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import { withAuthenticator } from 'aws-amplify-react-native';
